@@ -1,7 +1,9 @@
 from .ssd_detector import SSDDetector
+from .mssd_detector import MSSDDetector
 
 _DETECTION_META_ARCHITECTURES = {
-    "SSDDetector": SSDDetector
+    "SSDDetector": SSDDetector,
+    "MSSDDetector": MSSDDetector
 }
 
 

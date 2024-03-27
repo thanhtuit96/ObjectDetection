@@ -1,8 +1,11 @@
 import cv2
 import os
 import numpy as np
+import sys
 
-target="train"
+print(sys.argv)
+
+target = sys.argv[1]
 input_img_folder = 'VisDrone2019-DET-%s/images' % target
 input_ann_folder = 'VisDrone2019-DET-%s/annotations' % target
 DATA_DIR = "datasets"

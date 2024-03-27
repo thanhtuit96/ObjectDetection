@@ -11,9 +11,8 @@ class VisDroneDataset(torch.utils.data.Dataset):
     # 问题是datasets是在哪里进行设置的，应该会有一个参数，这就很麻烦
     # 也就是11个类别再加上background
     # 这边基本完事了，把文件加载进来就可以，修改一下类名， 然后看下主启动函数那边
-    class_names = ('ignored regions', 'pedestrian', 'people', 'bicycle', 'car', 'van',
+    class_names = ('ignore', 'pedestrian', 'people', 'bicycle', 'car', 'van',
                    'truck', 'tricycle', 'awning-tricycle', 'bus', 'motor', 'others')
-
     def __init__(self, data_dir, split, transform=None, target_transform=None, keep_difficult=False):
         """Dataset for VOC data.
         """
