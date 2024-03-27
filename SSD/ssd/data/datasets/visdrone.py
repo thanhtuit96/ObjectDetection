@@ -22,7 +22,7 @@ class VisDroneDataset(torch.utils.data.Dataset):
         self.split = split
         self.transform = transform
         self.target_transform = target_transform
-        image_sets_file = os.path.join(self.data_dir, "ImageSets", "Main", "%s.txt" % self.split)
+        image_sets_file = os.path.join(self.data_dir, "ImageSets", "%s.txt" % self.split)
         # 涉及到的路径信息
         print('训练涉及到的路径信息')
         print('image_sets_file:{}'.format(image_sets_file))

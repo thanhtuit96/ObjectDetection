@@ -1,20 +1,7 @@
 import sys
 import warnings
 import torchvision
-
-try:
-    import torch
-    import torch_extension
-
-    _nms = torch_extension.nms
-except ImportError:
-    if torchvision.__version__ >= '0.3.0':
-        _nms = torchvision.ops.nms
-    else:
-        warnings.warn('No NMS is available. Please upgrade torchvision to 0.3.0+ or compile c++ NMS '
-                      'using `cd ext & python build.py build_ext develop`')
-        sys.exit(-1)
-
+_nms = torchvision.ops.nms
 
 def nms(boxes, scores, nms_thresh):
     """ Performs non-maximum suppression, run on GPU or CPU according to

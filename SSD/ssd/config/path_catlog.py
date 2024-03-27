@@ -8,15 +8,15 @@ class DatasetCatalog:
             "data_dir": "DET2019",
             "split": "train"
         },
-        'VisDrone_2019__val': {
+        'VisDrone_2019_val': {
             "data_dir": "DET2019",
             "split": "val"
         },
-        'VisDrone_2019__trainval': {
+        'VisDrone_2019_trainval': {
             "data_dir": "DET2019",
             "split": "trainval"
         },
-        'VisDrone_2019__test': {
+        'VisDrone_2019_test': {
             "data_dir": "DET2019",
             "split": "test"
         },
