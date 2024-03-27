@@ -2,18 +2,22 @@ import cv2
 import os
 import numpy as np
 
-
-input_img_folder = 'VisDrone2019-DET-train/images'
-input_ann_folder = 'VisDrone2019-DET-train/annotations'
-output_ann_folder = 'VisDrone2019-DET-train/annotations_new'
-output_img_folder = 'VisDrone2019-DET-train/images_new'
+target="train"
+input_img_folder = 'VisDrone2019-DET-%s/images' % target
+input_ann_folder = 'VisDrone2019-DET-%s/annotations' % target
+DATA_DIR = "datasets"
+output_ann_folder = '%s/DET2019/Annotations' % DATA_DIR
+output_img_folder = '%s/DET2019/JPEGImages' % DATA_DIR
+output_img_sets = '%s/DET2019/ImageSets' % DATA_DIR
 
 os.makedirs(output_img_folder, exist_ok=True)
 os.makedirs(output_ann_folder, exist_ok=True)
+os.makedirs(output_img_sets, exist_ok=True)
 
 
 image_list = os.listdir(input_img_folder)
 annotation_list = os.listdir(input_ann_folder)
+img_sets = open(output_img_sets + "/%s.txt" % target, 'w')
 
 label_dict = {
 	"0" : "Ignore",
@@ -89,6 +93,7 @@ for annotation in annotation_list:
 	annotation_string_final = annotation_string_init + '</annotation>'
 	f = open(xml_path, 'w')
 	f.write(annotation_string_final)
+	img_sets.write(annotation.split('.txt')[0] + "\n")
 	f.close()
 	count += 1
 	print('[INFO] Completed {} image(s) and annotation(s) pair'.format(count))
