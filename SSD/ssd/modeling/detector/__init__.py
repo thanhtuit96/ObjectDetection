@@ -1,9 +1,11 @@
 from .ssd_detector import SSDDetector
 from .mssd_detector import MSSDDetector
+from .gssd_detector import GridSSDDetector
 
 _DETECTION_META_ARCHITECTURES = {
     "SSDDetector": SSDDetector,
-    "MSSDDetector": MSSDDetector
+    "MSSDDetector": MSSDDetector,
+    "GridSSDDetector": GridSSDDetector
 }
 
 
