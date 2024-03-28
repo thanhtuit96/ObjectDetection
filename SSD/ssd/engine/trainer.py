@@ -5,6 +5,7 @@ import os
 import time
 import torch
 import torch.distributed as dist
+from collections.abc import Mapping   # Only for Mapping
 
 from ssd.engine.inference import do_evaluation
 from ssd.utils import dist_util
@@ -15,7 +16,7 @@ def write_metric(eval_result, prefix, summary_writer, global_step):
     for key in eval_result:
         value = eval_result[key]
         tag = '{}/{}'.format(prefix, key)
-        if isinstance(value, collections.Mapping):
+        if isinstance(value, Mapping):
             write_metric(value, tag, summary_writer, global_step)
         else:
             summary_writer.add_scalar(tag, value, global_step=global_step)
