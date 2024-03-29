@@ -4,7 +4,7 @@ from ssd.modeling.backbone import build_backbone
 from ssd.modeling.box_head import build_box_head
 
 
-class MSSDDetector(nn.Module):
+class MDSSDDetector(nn.Module):
     def __init__(self, cfg):
         super().__init__()
         self.cfg = cfg
