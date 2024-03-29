@@ -12,7 +12,6 @@ class SSDDetector(nn.Module):
         self.box_head = build_box_head(cfg)
 
     def forward(self, images, targets=None):
-        # 前向传播一次，返回loss和detections
         features = self.backbone(images)
         detections, detector_losses = self.box_head(features, targets)
         if self.training:
